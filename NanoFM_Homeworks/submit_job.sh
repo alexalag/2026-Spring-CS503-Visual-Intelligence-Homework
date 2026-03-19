@@ -6,7 +6,7 @@
 #SBATCH --gres=gpu:2                    # Request 2 GPUs
 #SBATCH --mem=64G
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4               # Adjust CPU allocation if needed
+#SBATCH --cpus-per-task=10               # Adjust CPU allocation if needed
 #SBATCH --output=interactive_job.out    # Output log file
 #SBATCH --error=interactive_job.err     # Error log file
 
