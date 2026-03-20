@@ -1,0 +1,73 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W320 00:11:59.741485129 ProcessGroupNCCL.cpp:5138] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/lagutova/2026-Spring-CS503-Visual-Intelligence-Homework/NanoFM_Homeworks/run_training.py", line 398, in <module>
+[rank0]:     main(args)
+[rank0]:   File "/home/lagutova/2026-Spring-CS503-Visual-Intelligence-Homework/NanoFM_Homeworks/run_training.py", line 163, in main
+[rank0]:     log_writer = utils.WandbLogger(args)
+[rank0]:   File "/home/lagutova/2026-Spring-CS503-Visual-Intelligence-Homework/NanoFM_Homeworks/nanofm/utils/logger.py", line 198, in __init__
+[rank0]:     wandb.init(
+[rank0]:   File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1595, in init
+[rank0]:     get_sentry().reraise(e)
+[rank0]:   File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/wandb/analytics/sentry.py", line 190, in reraise
+[rank0]:     raise exc.with_traceback(tb)
+[rank0]:   File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1516, in init
+[rank0]:     wi.maybe_login(init_settings)
+[rank0]:   File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 193, in maybe_login
+[rank0]:     wandb_login._login(
+[rank0]:   File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/wandb/sdk/wandb_login.py", line 190, in _login
+[rank0]:     auth = _find_or_prompt_for_key(
+[rank0]:   File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/wandb/sdk/wandb_login.py", line 266, in _find_or_prompt_for_key
+[rank0]:     auth = wbauth.authenticate_session(
+[rank0]:   File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 127, in authenticate_session
+[rank0]:     if not relogin and (auth := _use_system_auth(host=host, source=source)):
+[rank0]:   File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 188, in _use_system_auth
+[rank0]:     _try_env_auth(host=host)  #
+[rank0]:   File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 225, in _try_env_auth
+[rank0]:     raise AuthenticationError(f"{env.API_KEY} invalid: {e}") from None
+[rank0]: wandb.errors.errors.AuthenticationError: WANDB_API_KEY invalid: API key must have 40+ characters, has 36.
+W0320 00:12:06.755000 1135907 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 1135984 closing signal SIGTERM
+E0320 00:12:06.870000 1135907 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 0 (pid: 1135983) of binary: /home/lagutova/miniconda/envs/nanofm/bin/python3.10
+Traceback (most recent call last):
+  File "/home/lagutova/miniconda/envs/nanofm/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+  File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+  File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/lagutova/miniconda/envs/nanofm/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+run_training.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-03-20_00:12:06
+  host      : i09.izar.cluster
+  rank      : 1 (local_rank: 1)
+  exitcode  : -15 (pid: 1135984)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 1135984
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-03-20_00:12:06
+  host      : i09.izar.cluster
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1135983)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

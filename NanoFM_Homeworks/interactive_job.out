@@ -1,0 +1,15 @@
+no change     /home/lagutova/miniconda/condabin/conda
+no change     /home/lagutova/miniconda/bin/conda
+no change     /home/lagutova/miniconda/bin/conda-env
+no change     /home/lagutova/miniconda/bin/activate
+no change     /home/lagutova/miniconda/bin/deactivate
+no change     /home/lagutova/miniconda/etc/profile.d/conda.sh
+no change     /home/lagutova/miniconda/etc/fish/conf.d/conda.fish
+no change     /home/lagutova/miniconda/shell/condabin/Conda.psm1
+no change     /home/lagutova/miniconda/shell/condabin/conda-hook.ps1
+no change     /home/lagutova/miniconda/lib/python3.13/site-packages/xontrib/conda.xsh
+no change     /home/lagutova/miniconda/etc/profile.d/conda.csh
+no change     /home/lagutova/.bashrc
+No action taken.
+| distributed init (rank 0): env://, gpu 0
+| distributed init (rank 1): env://, gpu 1
